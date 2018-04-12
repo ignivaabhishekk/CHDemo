@@ -1,14 +1,26 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
 
-export default class App extends React.Component {
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  AppRegistry
+} from 'react-native';
+import RootStack from './src/config/routes';
+import Main from "./src";
+import codePush from "react-native-code-push";
+
+
+type Props = {};
+export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Abhishek is in the house.</Text>
-      </View>
+      <Main />
     );
   }
 }
@@ -16,8 +28,21 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'teal',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
   },
 });
+
+let MyApp = codePush(App);
+AppRegistry.registerComponent('AwesomeProject', () => MyApp);
