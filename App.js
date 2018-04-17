@@ -43,6 +43,9 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
-
+let codePushOptions = { 
+  checkFrequency: codePush.CheckFrequency.ON_APP_RESUME, 
+  installMode: codePush.InstallMode.ON_NEXT_RESUME 
+}
 let MyApp = codePush(App);
-AppRegistry.registerComponent('AwesomeProject', () => MyApp);
+AppRegistry.registerComponent('CareerHunt', () => MyApp);
