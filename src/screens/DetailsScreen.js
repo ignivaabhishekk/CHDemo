@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet,Button,Image } from 'react-native';
+import { Text, View, StyleSheet,Button,Image ,ImageBackground} from 'react-native';
 import Swiper from 'react-native-deck-swiper';
 
 let obj1={
@@ -53,7 +53,8 @@ let obj2 = {
 class DetailsScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1 ,backgroundColor: "#F5FCFF"}}>
+      <View style={{ flex: 1 }}>
+      {/* <ImageBackground source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}} style={{width:450, height: 600}} > */}
         <Swiper
             cards={['DO', 'MORE', 'OF', 'WHAT', 'MAKES', 'YOU', 'HAPPY']}
             renderCard={(card) => {             
@@ -67,7 +68,7 @@ class DetailsScreen extends React.Component {
             onSwiped={(cardIndex) => {console.log(cardIndex)}}
             onSwipedAll={() => {console.log('onSwipedAll')}}
             cardIndex={0}
-            backgroundColor={'#4FD0E9'}
+            backgroundColor={'transparent'}
             stackSize= {2}
             showSecondCard={true}
             verticalSwipe ={false}
@@ -79,7 +80,7 @@ class DetailsScreen extends React.Component {
             >
            
         </Swiper> 
-        <View style={{backgroundColor:'red',position:'absolute',bottom:10,left:10,right:10,flexDirection:'row'}}> 
+        <View style={{position:'absolute',bottom:10,left:10,right:10,flexDirection:'row'}}> 
             <Button
                     onPress={() => {console.log('oulala')}}
                     title="Press me">
@@ -91,15 +92,16 @@ class DetailsScreen extends React.Component {
                     You can press me
                 </Button>      
           </View>
+          {/* </ImageBackground> */}
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#F5FCFF"
-  },
+  // container: {
+  //   flex: 1,
+  //   backgroundColor: "#F5FCFF"
+  // },
   overlayLabelStyle:{
     fontSize: 45,
     fontWeight: 'bold',
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden'
   },
   card: {
-    height:300,
+    height:450,
     borderRadius: 4,
     borderWidth: 2,
     borderColor: "#E8E8E8",
